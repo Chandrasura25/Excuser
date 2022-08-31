@@ -1,31 +1,22 @@
-import React from 'react'
-import img from '../assets/images/20200817_225859.png'
+import React,{useState} from 'react'
+export default function Navbar({getExcuse}) {
 
-
-export default function Navbar() {
+  const [inputV,setinputV]= useState('');
+  console.log(inputV);
   return (
-    <div>
-<nav className="navbar navbar-expand-md bg-dark navbar-dark">
-<a className="navbar-brand" href="#">
- <img src={img} style={{height:"50px"}}/>
-</a>
-<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span className="navbar-toggler-icon"></span>
-  </button>
-  <div className="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul className="navbar-nav">
-      <li className="nav-item">
-        <a className="nav-link">Link</a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="#">Link</a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="#">Link</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+   <>
+      <h1 data-text="GET THE MOST AMAZING EXCUSE FOR YOUR EXCUSE">GET THE MOST AMAZING EXCUSE FOR YOUR EXCUSE</h1>
+    <div className="box">
+    <select id="cars" name="cars" onChange={(e)=>setinputV(e.target.value)}>
+    <option value="">Pick a Category</option>
+      <option value="family">Family</option>
+      <option value="office">Office</option>
+      <option value="children">Children</option>
+      <option value="college">College</option>
+      <option value="party">Party</option>
+    </select>
     </div>
+    <button className='button' onClick={()=>getExcuse(inputV)}>Get Excuse</button>
+   </>
   )
 }
