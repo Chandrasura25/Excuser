@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom'
 const Excusepage = ({excuse,isLoading}) => {
     const preloader = document.querySelector('.preloader');
     const a = document.querySelector('a');
@@ -26,15 +26,18 @@ const Excusepage = ({excuse,isLoading}) => {
   </div> 
   :
   excuse.map((excused,index)=>(
-        <div key={index} className="card">
+  <div>
+    <Link to='/' className='back'>Home</Link>
+     <div key={index} className="card">
             <div className='card-header'>{excused.category}</div>
             <div className="card-body">
             <h4>{excused.excuse}</h4>
             </div>
             <div className="card-footer">
-            <a href="#" onClick={()=>like()}>Like</a>
+            <Link to="" className='a' onClick={()=>like()}>Like</Link>
             </div>
         </div>
+  </div>
     ))}
     </>
   )
